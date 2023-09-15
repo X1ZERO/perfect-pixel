@@ -1,0 +1,26 @@
+{
+  "name": "perfect-pixel",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.1",
+    "core-js": "^3.25.3",
+    "node-sass": "^9.0.0",
+    "nuxt": "^2.15.8",
+    "sass-loader": "10",
+    "vue": "^2.7.10",
+    "vue-server-renderer": "^2.7.10",
+    "vue-slick-carousel": "^1.0.6",
+    "vue-template-compiler": "^2.7.10"
+  },
+  "devDependencies": {
+    "@nuxtjs/google-fonts": "^3.0.2",
+    "sass": "1.42.1"
+  }
+}
