@@ -78,6 +78,47 @@
                     </div>
                 </div>
             </div>
+            <VueSlickCarousel v-bind="settings" class="slide-section">
+                <div class="slide-page">
+                    <div class="head-wrapper">
+                        <div class="bullet-wrapper">
+                            <span class="num-bullet">01</span>
+                            <h2 class="sub-head-label">CONNECTION</h2>
+                        </div>
+                    </div>
+                    <div class="description-wrapper">
+                        <p class="description-label">
+                            Connect with coaches directly, you can ping coaches to view profile.
+                        </p>
+                    </div>
+                </div>
+                <div class="slide-page">
+                    <div class="head-wrapper">
+                        <div class="bullet-wrapper">
+                            <span class="num-bullet">02</span>
+                            <h2 class="sub-head-label">COLLABORATION</h2>
+                        </div>
+                    </div>
+                    <div class="description-wrapper">
+                        <p class="description-label">
+                            Work with other student athletes to increase visability. When you share and like other players videos it will increase your visability as a player. This is the team work aspect to Surface 1.
+                        </p>
+                    </div>
+                </div>
+                <div class="slide-page">
+                    <div class="head-wrapper">
+                        <div class="bullet-wrapper">
+                            <span class="num-bullet">03</span>
+                            <h2 class="sub-head-label">GROWTH</h2>
+                        </div>
+                    </div>
+                    <div class="description-wrapper">
+                        <p class="description-label">
+                            Resources and tools for you to get better as a student Athelte. Access to training classes, tutor sessions, etc
+                        </p>
+                    </div>
+                </div>
+            </VueSlickCarousel>
         </div>
         <div class="section-2">
             <div class="content-wrapper">
@@ -157,13 +198,79 @@
                     <img id="line-2" src="~/assets/images/path-45.svg"/>
                 </div>
             </div>
+            <VueSlickCarousel v-bind="settings" class="slide-section">
+                <div class="slide-page">
+                    <div class="head-wrapper">
+                        <div class="bullet-wrapper">
+                            <span class="num-bullet">01</span>
+                            <h2 class="sub-head-label">CONNECTION</h2>
+                        </div>
+                    </div>
+                    <div class="description-wrapper">
+                        <p class="description-label">
+                            Connect with talented athlete directly, you can watch their skills through video showreels directly from Surface 1.
+                        </p>
+                    </div>
+                </div>
+                <div class="slide-page">
+                    <div class="head-wrapper">
+                        <div class="bullet-wrapper">
+                            <span class="num-bullet">02</span>
+                            <h2 class="sub-head-label">COLLABORATION</h2>
+                        </div>
+                    </div>
+                    <div class="description-wrapper">
+                        <p class="description-label">
+                            Work with recruiter to increase your chances of finding talented athlete.
+                        </p>
+                    </div>
+                </div>
+                <div class="slide-page">
+                    <div class="head-wrapper">
+                        <div class="bullet-wrapper">
+                            <span class="num-bullet">03</span>
+                            <h2 class="sub-head-label">GROWTH</h2>
+                        </div>
+                    </div>
+                    <div class="description-wrapper">
+                        <p class="description-label">
+                            Save your time, recruit proper athlets for your team.
+                        </p>
+                    </div>
+                </div>
+            </VueSlickCarousel>
         </div>
     </div>
 </template>
 
 <script>
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+// optional style for arrows & dots
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  data() {
+    return {
+        settings: {
+          "arrows": false,
+          "dots": true,
+          "infinite": false,
+          "autoplaySpeed": 3000,
+          "edgeFriction": 0.35,
+          "slidesToShow": 1,
+          "slidesToScroll": 1,
+          "autoplay": false,
+          "cssEase": "linear",
+          "initialSlide": 0,
+          "swipeToSlide": true,
+      },
+    }
+  },
+  components: {
+    VueSlickCarousel,
+  },
 }
 </script>
 
@@ -230,8 +337,248 @@ export default {
                 }
             }
         }
+        .slide-section {
+            display: none;
+        }
     }
     
+    @media (max-width: 767px) { // mobile
+        .slide-section {
+            display: block !important;
+            .slide-page {
+                .head-wrapper{
+                    .bullet-wrapper {
+                        gap: 10px;
+                        .num-bullet {
+                            font-size: 14px;
+                            position: relative;
+                            align-self: start;
+                            margin-top: 5px;
+                            &::after {
+                                content: "";
+                                width: 17px;
+                                height: 4px;
+                                position: absolute;
+                                bottom: 0px;
+                                left: 0px;
+                                bottom: -6px;
+                            }
+                        }
+                    }
+                    .sub-head-label {
+                        color: #C2C2C2;            
+                        font-size: 28px;
+                        margin: 0px;
+                    }
+                }
+                .description-wrapper {
+                    font-size: 15px;
+                    .description-label {
+                        line-height: normal;
+                        margin-top: 20px;
+                        margin-bottom: 0px;
+                        width: 284px;
+                    }
+                }
+            }
+            
+            .slick-track {
+                display: flex !important;
+            
+                .slick-slide {
+                    height: inherit !important;
+                    > div {
+                        height: 100%;
+                        padding: 72px 18px 69px;
+                        background-color: #F5F4F9;
+                    }
+                }
+            }
+            .slick-dots {
+                bottom: 30px;
+                position: absolute;
+                > li {
+                  width: 10px;
+                  height: 10px;
+                    button {
+                        width: 10px;
+                        height: 10px;
+                        padding: 0px;
+                        &:before {
+                            font-size: 10px;
+                            width: 10px;
+                            height: 10px;
+                            line-height: 10px;
+                            opacity: 1;
+                            color: #D8D8D8;
+                        }
+                    }
+                }
+                > li.slick-active {
+                    button {
+                        &:before {
+                            opacity: 1;
+                            color: #5C3CAF;
+                        }
+                    }
+                }
+            }
+        }
+        .sub-wrapper {
+            &:first-child {
+                .head-label {
+                    font-size: 50px;
+                    padding-left: 18px;
+                }
+                .content {
+                    > div:not(:first-child) {
+                        display:none;
+                    }
+                }
+            }
+            &:nth-child(2) {
+                display: none;
+            }
+            &:last-child {
+                display: none;
+            }
+        }
+        .section-1 {
+            position: relative;
+            .sub-wrapper {
+                &:first-child {
+                    .head-label {
+                        margin-top: 0px;
+                    }
+                    .content {
+                        height: 296px;
+                    }
+                }
+            }
+             // Image Section
+             .image-wrapper {
+                position: absolute;
+                top: 0px;
+                left: 0;
+                width: 100%;
+                .image-container {
+                    position: absolute;
+                    width: 200px;
+                    top: 70px;
+                    left: 70px;
+                    right: 50px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                img {
+                    position: absolute;
+                    &#person-1 {
+                        width: 200px;
+                        z-index: 1;
+                        top: 0px;
+                        left: 0px;
+                    }
+                    &#plus-1 {
+                        top: 20px;
+                        left: 4px;
+                        width: 15px;
+                        height: 15px;
+                    }
+                    &#plus-2 {
+                        top: 10px;
+                        left: -18px;
+                        width: 15px;
+                        height: 15px;
+                    }
+                    &#line-1 {
+                        top: 12.91px;
+                        right: 22.75px;
+                        width: 178.893px;
+                        height: 197.234px;
+                    }
+                    &#line-2 {
+                        display: none;
+                    }
+                }
+            }
+        }
+        .section-2 {
+            position: relative;
+            .sub-wrapper {
+                &:first-child {
+                    .head-label {
+                        padding-left: 18px;
+                        margin-top: 19px;
+                    }
+                    .content {
+                        height: 296px;
+                    }
+                }
+            }
+             // Image Section
+             .image-wrapper {
+                position: absolute;
+                top: -19px;
+                left: 0px;
+                width: 100%;
+                .image-container {
+                    position: absolute;
+                    width: 302px;
+                    top: 101px;
+                    left: 3px;
+                    right: 15px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                img {
+                    position: absolute;
+                    &#person-2 {
+                        width: 302px;
+                        z-index: 2;
+                        top: 0px;
+                        left: 0px;
+                    }
+                    &#plus-1 {
+                        top: 8px;
+                        left: 71px;
+                        width: 15px;
+                        height: 15px;
+                    }
+                    &#plus-2 {
+                        top: -1px;
+                        left: 49px;
+                        width: 15px;
+                        height: 15px;
+                    }
+                    &#plus-3 {
+                        top: 149px;
+                        right: 21px;
+                        width: 15px;
+                        height: 15px;
+                    }
+                    &#line-1 {
+                        top: 108.92px;
+                        left: 49px;
+                        width: 106.346px;
+                        height: 123.199px;
+                        z-index: 1;
+                    }
+                    &#line-2 {
+                        top: 23.32px;
+                        right: 28.42px;
+                        width: 76.691px;
+                        height: 89.838px;
+                    }
+                }
+            }
+            .slick-slide {
+                > div {
+                    padding-bottom: 77px !important;
+                }
+            }
+        }
+    }
+
     @media (min-width: 768px) and (max-width: 1199px) { // tablet
         // Sepecific Section Style --------------------------------------------------
         .description-label {
