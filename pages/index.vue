@@ -343,6 +343,8 @@ export default {
     }
     
     @media (max-width: 767px) { // mobile
+
+        // Slide Style Replacements -----------------------------------------------------------------
         .slide-section {
             display: block !important;
             .slide-page {
